@@ -1,17 +1,15 @@
 {
   "name": "playground",
-  "version": "1.0.0",
-  "description": "",
+  "module": "index.ts",
   "type": "module",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@google/genai": "^1.47.0",
-    "dotenv": "^17.3.1"
-  }
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "workspaces":[
+    "packages/*" 
+  ]
 }
