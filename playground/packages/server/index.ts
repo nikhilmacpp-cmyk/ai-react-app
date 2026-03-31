@@ -10,7 +10,7 @@ app.get('/',(req:Request,res:Response)=>{
     res.send(process.env.OPENAI_API_KEY)
 });
 app.get('/api/hello',(req:Request,res:Response)=>{
-    res.send({message:'hello server'})
+    res.send({message:'hello server!!'})
 });
 
 app.listen(port,()=>{
