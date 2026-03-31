@@ -1,17 +1,21 @@
 import { useState, useEffect } from 'react'
+import { Button } from './components/ui/button'
 import './App.css'
 
 function App() {
-  const [message,setMessage] = useState('');
+  const [message, setMessage] = useState('');
 
-  useEffect(()=>{
+  useEffect(() => {
     fetch('/api/hello')
-    .then((res)=>res.json())
-    .then((data)=>{setMessage(data?.message)})
-  },[])
+      .then((res) => res.json())
+      .then((data) => { setMessage(data?.message) })
+  }, [])
 
   return (
-   <h1 className="font-bold p-4 text-3xl">{message}</h1>
+    <div className = "p-4">
+      <p className="font-bold text-3xl">{message}</p>
+      <Button>ClickMe</Button>
+    </div>
   )
 }
 
