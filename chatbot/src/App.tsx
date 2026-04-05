@@ -1,9 +1,13 @@
-import { useState } from 'react'
+import ChatComponent from './components/ChatComponent'
 import './App.css'
 
 function App() {
   return( <>
-      <h1 className="font-bold underline">Hello</h1>
+      <div className="max-w-lg mt-20 mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+        <div className="w-full max-w-lg bg-white shadow-lg overfloe-hidden">
+            <ChatComponent/>
+        </div>
+      </div>
   </>
   )
 }
