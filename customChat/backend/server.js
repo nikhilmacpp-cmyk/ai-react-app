@@ -2,6 +2,11 @@ import express from "express";
 import fetch from "node-fetch";
 import cors from "cors";
 
+const documents = [
+"Company allows 10 days leave",
+"Refund policy is 7 days"
+]
+
 let chatHistory = []
 const app = express();
 app.use(express.json());
