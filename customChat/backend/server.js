@@ -2,13 +2,18 @@ import express from "express";
 import fetch from "node-fetch";
 import cors from "cors";
 
+let chatHistory = []
 const app = express();
 app.use(express.json());
 app.use(cors());
 
 app.post("/chat", async (req, res) => {
     try {
-        const prompt = req.body.prompt;
+        const prompt = 'HI';
+        chatHistory.push({ role: "user", content: prompt });
+        const formattedPrompt = chatHistory
+      .map(msg => `${msg.role}: ${msg.content}`)
+      .join("\n");
         const response = await fetch('http://localhost:11434/api/generate', {
             method: "POST",
             headers: {
@@ -16,11 +21,12 @@ app.post("/chat", async (req, res) => {
             },
             body: JSON.stringify({
                 model: "llama3",
-                prompt: prompt,
+                prompt: formattedPrompt,
                 stream: false
             })
         });
         const data = await response.json();
+        chatHistory.push({ role: "assistant", content: data.response });
         res.json({ reply: data.response })
     } catch (error) {
         res.status(500).send(error);
