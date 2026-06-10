@@ -1,8 +1,9 @@
 import {useSelector,useDispatch} from 'react-redux';
 import LoginPage from './pages/LoginPage'
 import Dashboard from './pages/Dashboard'
+import {useAuth} from './hooks/useAuth'
 const App = () =>{
-  const {isAuthenticated} = useSelector((state)=> state.auth);
+  const {isAuthenticated} = useAuth();
   const dispatch = useDispatch();
   return (
     <div>

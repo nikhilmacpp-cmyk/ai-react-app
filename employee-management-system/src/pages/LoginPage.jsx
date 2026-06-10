@@ -7,7 +7,7 @@ function LoginPage() {
   const dispatch = useDispatch();
 
   const handleLogin = () => {
-    dispatch(login({ name }));
+    if(name?.length)dispatch(login({ name }));
   };
 
   return (
