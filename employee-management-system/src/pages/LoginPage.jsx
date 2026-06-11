@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { login } from "../features/auth/authSlice";
 
 function LoginPage() {
   const [name, setName] = useState("");
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const handleLogin = () => {
     if(name?.length)dispatch(login({ name }));
+    navigate("/dashboard");
   };
 
   return (
